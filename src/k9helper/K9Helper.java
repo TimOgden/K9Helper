@@ -23,13 +23,16 @@ public class K9Helper {
     private static ArrayList<Quote> quotes;
     private static long timeToWait = 12000;
     private static long timeStarted = 0;
+    private static String url = "C://Users/Tim/Documents/NetbeansProjects/K9Helper/info.txt"; //This is the line you have to change. 
+    //Doesn't matter where your info.txt file is, as long as you point to it correctly.
+    //After you change it to where you need, you need to build the file to get a .jar file. This is what you should run.
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-        Scanner scan = new Scanner(new File("info.txt"));
+        Scanner scan = new Scanner(new File(url));
         GUI gui = null;
 
         if (!scan.hasNext()) {
@@ -64,7 +67,7 @@ public class K9Helper {
                     
                 }
             }
-            Scanner read = new Scanner(new File("info.txt"));
+            Scanner read = new Scanner(new File(url));
             gui.getjTextArea1().setText("Thank you for waiting. Your password is:\n\t" + decrypt(read.nextLine()));
             
         }
