@@ -1,2 +1,8 @@
-Anaconda Prompt - python  windowGetter.py||||0.5,
-A.I. Solves a 55 x 55 x 55 Rubik's Cube - YouTube - Google Chrome||||0.5,
+Anaconda Prompt - python  windowGetter.py
+1.8333333333333335
+C:\Users\Tim\ProgrammingProjects\ProductivityImprover\windowGetter.py - Sublime Text (UNREGISTERED)
+0.16666666666666666
+AttributeError: 'NoneType' object has no attribute 'loss' · Issue #9091 · keras-team/keras - Google Chrome
+0.16666666666666666
+A.I. Solves a 55 x 55 x 55 Rubik's Cube - YouTube - Google Chrome
+7.0000000000000036

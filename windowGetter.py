@@ -1,9 +1,10 @@
 from win32gui import GetWindowText, GetForegroundWindow
 import time
+import datetime
 from faceDetector import hasFace, detect, close
 check_freq_sec = 10
 applications_time = {}
-num_hours = 0.08333333333 * 2 # 10 mins
+num_hours = 0.08333333333 # 5 mins
 t_end = time.time() + num_hours * 60 * 60
 
 def main():
@@ -28,7 +29,8 @@ def log_window():
 		applications_time[w] = check_freq_sec/60
 
 def publish_log():
-	with open('windowslog.txt', 'w') as f:
+	now = datetime.datetime.now()
+	with open('windowslog-{}-{}-{}.txt'.format(now.month,now.day,now.year), 'w') as f:
 		val = ""
 		for key in applications_time:
 			val += key + "\n" + str(applications_time[key]) + "\n"
