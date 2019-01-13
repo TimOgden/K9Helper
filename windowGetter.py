@@ -1,17 +1,22 @@
 from win32gui import GetWindowText, GetForegroundWindow
 import time
-
-check_freq_sec = 30
+from faceDetector import hasFace, detect, close
+check_freq_sec = 10
 applications_time = {}
-num_minutes = 60*24
-t_end = time.time() + num_minutes * 60
+num_hours = 0.08333333333 * 2 # 10 mins
+t_end = time.time() + num_hours * 60 * 60
 
 def main():
 	while time.time() < t_end:
-		log_window()
-		print('.')
+		if hasFace():
+			log_window()
+			print('.')
+			print(window())
+		else:
+			print('No face found')
 		time.sleep(check_freq_sec)
 	publish_log()
+	close()
 	print('done')
 
 
@@ -26,7 +31,7 @@ def publish_log():
 	with open('windowslog.txt', 'w') as f:
 		val = ""
 		for key in applications_time:
-			val += key + "||||" + str(applications_time[key]) + ",\n"
+			val += key + "\n" + str(applications_time[key]) + "\n"
 		f.write(val)
 
 def window():
